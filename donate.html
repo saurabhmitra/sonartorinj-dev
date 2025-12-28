@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonar Tori - Donate</title>
+    <link rel="stylesheet" href="styles.css">
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo.jpg" alt="Sonar Tori Logo" class="logo-img">
+                    <h1>Sonar Tori</h1>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="tickets.html">Tickets</a></li>
+                <li><a href="donate.html" class="active">Donate</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="donate-section">
+            <div class="container">
+                <h2 class="page-title">Donate</h2>
+                
+                <div class="donate-content">
+                    <div class="donate-info">
+                        <h3>Support Our Mission</h3>
+                        <p>
+                            Sonar Tori Inc is a 501(c)(3) nonprofit organization committed to celebrating, preserving, and promoting the richness of cultural diversity within our community and beyond. Your generous contributions help us organize our annual flagship events, along with a variety of gatherings throughout the year that highlight unity, shared values, and the beauty of our rich traditions. Your support strengthens our mission of fostering inclusion, understanding, and appreciation across cultures.
+                        </p>
+                        <p>
+                            As a tax‑exempt organization, your donations may be tax‑deductible to the extent allowed by law. We are deeply grateful for your support in helping us continue this important work of building a vibrant, inclusive, and connected community.
+                        </p>
+                    </div>
+
+                    <div class="donate-button-section">
+                        <h3>Make a Donation</h3>
+                        <div class="stripe-donate-container">
+                            <!-- Insert Stripe donate button here -->
+                            <script async
+                                src="https://js.stripe.com/v3/buy-button.js">
+                            </script>
+							<script async
+							src="https://js.stripe.com/v3/buy-button.js">
+						  </script>
+						  
+						  <stripe-buy-button
+							buy-button-id="buy_btn_1Ry5zl2LvfvvUdNtoU0eHMmm"
+							publishable-key="pk_live_51Pi2QQ2LvfvvUdNtuoq7epwTvUNIxekUDNhbQPzqoLpmWOWS1LD2d2mEWQvQs9GkeSHiIvJEhy4GVv7e3PgdWYPq0066ju3xbv"
+						  >
+						  </stripe-buy-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Sonar Tori. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

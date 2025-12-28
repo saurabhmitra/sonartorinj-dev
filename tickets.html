@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonar Tori - Tickets</title>
+    <link rel="stylesheet" href="styles.css">
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo.jpg" alt="Sonar Tori Logo" class="logo-img">
+                    <h1>Sonar Tori</h1>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="tickets.html" class="active">Tickets</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="tickets-section">
+            <div class="container">
+                <h2 class="page-title">Saraswati Puja and Sankranti 2026</h2>
+
+                <div class="payment-table-section">
+					<h3>Purchase Tickets</h3>
+                    <table class="payment-table">
+                        <thead>
+                            <tr>
+                                <th>Ticket Type</th>
+                                <th>Price</th>
+                                <th>Stripe Payment Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Adult (Veg/Non-Veg)</td>
+                                <td>$45</td>
+                                <td class="payment-link-cell">
+                                    <script async
+									src="https://js.stripe.com/v3/buy-button.js">
+									</script>
+
+									<stripe-buy-button
+									buy-button-id="buy_btn_1SgHSD2LvfvvUdNtcdF6Rvhp"
+									publishable-key="pk_live_51Pi2QQ2LvfvvUdNtuoq7epwTvUNIxekUDNhbQPzqoLpmWOWS1LD2d2mEWQvQs9GkeSHiIvJEhy4GVv7e3PgdWYPq0066ju3xbv"
+									>
+									</stripe-buy-button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>College Students</td>
+                                <td>$25</td>
+                                <td class="payment-link-cell">
+									<script async
+									src="https://js.stripe.com/v3/buy-button.js">
+									</script>
+									
+									<stripe-buy-button
+									buy-button-id="buy_btn_1SgHYv2LvfvvUdNtDkKeeJ4b"
+									publishable-key="pk_live_51Pi2QQ2LvfvvUdNtuoq7epwTvUNIxekUDNhbQPzqoLpmWOWS1LD2d2mEWQvQs9GkeSHiIvJEhy4GVv7e3PgdWYPq0066ju3xbv"
+									>
+									</stripe-buy-button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Kids (5-12 years)</td>
+                                <td>$20</td>
+								<td class="payment-link-cell">
+									<script async
+									src="https://js.stripe.com/v3/buy-button.js">
+									</script>
+
+									<stripe-buy-button
+									buy-button-id="buy_btn_1SgIp12LvfvvUdNtgM8g2I5Z"
+									publishable-key="pk_live_51Pi2QQ2LvfvvUdNtuoq7epwTvUNIxekUDNhbQPzqoLpmWOWS1LD2d2mEWQvQs9GkeSHiIvJEhy4GVv7e3PgdWYPq0066ju3xbv"
+									>
+									</stripe-buy-button>
+								</td>
+                            </tr>
+                            <tr>
+                                <td>Puja + Bhog only</td>
+                                <td>$20</td>
+
+                                <td class="payment-link-cell">
+									<script async
+									src="https://js.stripe.com/v3/buy-button.js">
+									</script>
+
+									<stripe-buy-button
+									buy-button-id="buy_btn_1SgIrQ2LvfvvUdNtKJ4JpGAN"
+									publishable-key="pk_live_51Pi2QQ2LvfvvUdNtuoq7epwTvUNIxekUDNhbQPzqoLpmWOWS1LD2d2mEWQvQs9GkeSHiIvJEhy4GVv7e3PgdWYPq0066ju3xbv"
+									>
+									</stripe-buy-button>
+								</td>
+                            </tr>
+                            <tr>
+                                <td>Kids &lt; 5 years</td>
+                                <td>Free</td>
+                                <td class="payment-link-cell">
+                                    <div class="stripe-placeholder">
+                                        <!-- No payment required -->
+                                        <span class="free-text">No payment required</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="donate-link-text">Want to support our mission? <a href="donate.html" class="donate-link">Make a donation</a> to help us continue organizing cultural events.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Sonar Tori. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
