@@ -438,8 +438,8 @@ body {
 }
 
 .payment-table {
-    width: 100%;
-    min-width: 600px;
+    width: auto;
+    max-width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
 }
@@ -451,16 +451,25 @@ body {
 
 .payment-table th,
 .payment-table td {
-    padding: 1rem;
+    padding: 1rem 1.25rem;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    white-space: nowrap;
 }
 
 .payment-table th:first-child,
 .payment-table td:first-child {
-    min-width: 20px;
-    max-width: 200px;
-    word-wrap: break-word;
+    white-space: normal;
+	width: 40%;
+	padding-right: 0;
+}
+
+.payment-table th:nth-child(2),
+.payment-table td:nth-child(2) {
+    text-align: center;
+    width: 1%;
+    white-space: nowrap;
+	padding-left: 0;
 }
 
 .payment-table tbody tr:hover {
@@ -468,39 +477,21 @@ body {
 }
 
 .payment-link-cell {
-    text-align: center;
-    min-width: 10px;
-    max-width: 300px;
-    overflow: hidden;
+    min-width: 120px;
+    max-width: 180px;
+    padding: 0.5rem !important;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
+    overflow: hidden;
 }
 
-.payment-link-cell stripe-buy-button {
-    display: inline-flex;
-    max-width: 100%;
-    overflow: hidden;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-}
-
-.payment-link-cell stripe-buy-button::part(button) {
-    max-width: 100% !important;
-    width: 100% !important;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-/* Force Stripe button container to respect max-width */
-.payment-link-cell > * {
-    max-width: 100%;
-    overflow: hidden;
-    margin: 0 auto;
+.payment-link-cell stripe-buy-button,
+.payment-link-cell .stripe-placeholder {
+    display: block;
+    width: 10px;
+    position: relative;
+    left: 50%;
+    margin-left: -150px;
+    text-align: center;
 }
 
 .stripe-placeholder {
@@ -527,6 +518,8 @@ body {
     color: #28a745;
     font-weight: 600;
     font-style: italic;
+    display: block;
+    text-align: center;
 }
 
 /* Contact Page Styles */
@@ -711,40 +704,22 @@ body {
 
     .payment-table {
         font-size: 0.9rem;
-        min-width: 500px;
+        min-width: 450px;
     }
 
     .payment-table th,
     .payment-table td {
-        padding: 0.5rem;
+        padding: 0.75rem 1rem;
     }
 
     .payment-table th:first-child,
     .payment-table td:first-child {
         white-space: normal;
-        word-wrap: break-word;
-        min-width: 100px;
-        max-width: 150px;
-    }
-
-    .payment-table th:not(:first-child),
-    .payment-table td:not(:first-child) {
-        white-space: nowrap;
     }
 
     .payment-link-cell {
-        min-width: 150px;
-        max-width: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .payment-link-cell stripe-buy-button {
-        max-width: 100%;
-        transform: scale(0.85);
-        transform-origin: center;
-        margin: 0 auto;
+        min-width: 100px;
+        max-width: 140px;
     }
 
     .page-title,
@@ -800,42 +775,23 @@ body {
     }
 
     .payment-table {
-        font-size: 0.8rem;
-        min-width: 350px;
+        font-size: 0.85rem;
+        min-width: 380px;
     }
 
     .payment-table th,
     .payment-table td {
-        padding: 0.4rem;
-        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
     }
 
     .payment-table th:first-child,
     .payment-table td:first-child {
         white-space: normal;
-        word-wrap: break-word;
-        min-width: 50px;
-        max-width: 90px;
-        font-size: 0.7rem;
-    }
-
-    .payment-table th:not(:first-child),
-    .payment-table td:not(:first-child) {
-        white-space: nowrap;
     }
 
     .payment-link-cell {
-        min-width: 120px;
-        max-width: 150px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .payment-link-cell stripe-buy-button {
-        transform: scale(0.75);
-        transform-origin: center;
-        margin: 0 auto;
+        min-width: 80px;
+        max-width: 110px;
     }
 
     .main-content {
