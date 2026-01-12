@@ -25,7 +25,7 @@ body {
 
 /* Navbar Styles */
 .navbar {
-    background: linear-gradient(135deg, #FF6B35 0%, #e55a2b 100%);
+    background: linear-gradient(135deg, #ff8635 0%, #e57f2b 100%);
     color: white;
     padding: 1rem 0;
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
@@ -190,7 +190,7 @@ body {
     display: block;
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #FF6B35, #e55a2b);
+    background: linear-gradient(90deg, #ff8635, #e57f2b);
     margin: 1rem auto 0;
     border-radius: 2px;
 }
@@ -240,7 +240,7 @@ body {
     display: block;
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #FF6B35, #e55a2b);
+    background: linear-gradient(90deg, #ff8635, #e57f2b);
     margin: 1rem auto 0;
     border-radius: 2px;
 }
@@ -313,7 +313,7 @@ body {
 
 .cta-button {
     display: inline-block;
-    background: linear-gradient(135deg, #FF6B35 0%, #e55a2b 100%);
+    background: linear-gradient(135deg, #ff8635 0%, #e57f2b 100%);
     color: white;
     padding: 14px 35px;
     text-decoration: none;
@@ -321,14 +321,14 @@ body {
     font-weight: 600;
     margin: 0;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 134, 53, 0.3);
     letter-spacing: 0.3px;
 }
 
 .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
-    background: linear-gradient(135deg, #e55a2b 0%, #FF6B35 100%);
+    box-shadow: 0 6px 20px rgba(255, 134, 53, 0.4);
+    background: linear-gradient(135deg, #e57f2b 0%, #ff8635 100%);
 }
 
 .cta-button + .cta-button {
@@ -413,10 +413,6 @@ body {
 }
 
 .schedule-section {
-    background: var(--bubble-bg-color);
-    padding: 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     margin-top: 0;
 }
 
@@ -465,10 +461,6 @@ body {
 }
 
 .menu-section {
-    background: var(--bubble-bg-color);
-    padding: 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     margin-top: 0;
 }
 
@@ -480,24 +472,87 @@ body {
     letter-spacing: -0.5px;
 }
 
-.menu-image-container {
+.menu-tiles-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
     margin-top: 1rem;
-    border-radius: 8px;
-    overflow: hidden;
 }
 
-.menu-image {
+.menu-tile {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.menu-tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.menu-tile-banner {
     width: 100%;
-    height: auto;
+    height: 120px;
+    object-fit: cover;
     display: block;
-    border-radius: 8px;
+}
+
+.menu-tile-heading {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    color: white;
+    background: linear-gradient(135deg, #ff8635 0%, #e57f2b 100%);
+    margin: 0;
+    padding: 0.5rem 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    z-index: 1;
+    display: inline-block;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.menu-tile-no-banner .menu-tile-heading {
+    position: static;
+    transform: none;
+    margin: 1rem auto 0.5rem auto;
+}
+
+.menu-tile-list {
+    list-style: none;
+    padding: 1.5rem 1rem 1rem 1rem;
+    margin: 0;
+}
+
+.menu-tile-list h4 {
+    color: #e57f2b;
+    font-style: italic;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.menu-tile-list li {
+    padding: 0.25rem 0;
+    color: #4a5568;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .menu-tiles-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
 }
 
 .map-section {
-    background: var(--bubble-bg-color);
-    padding: 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     margin-top: 2rem;
 }
 
@@ -564,14 +619,14 @@ body {
 }
 
 .donate-link {
-    color: #FF6B35;
+    color: #ff8635;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .donate-link:hover {
-    color: #e55a2b;
+    color: #e57f2b;
     text-decoration: underline;
 }
 
@@ -583,7 +638,7 @@ body {
 }
 
 .payment-table thead {
-    background: linear-gradient(135deg, #FF6B35 0%, #e55a2b 100%);
+    background: linear-gradient(135deg, #ff8635 0%, #e57f2b 100%);
     color: white;
 }
 
@@ -773,7 +828,7 @@ body {
 .contact-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    border-color: #FF6B35;
+    border-color: #ff8635;
 }
 
 .contact-item h3 {
@@ -794,7 +849,7 @@ body {
 }
 
 .contact-value a:hover {
-    color: #FF6B35;
+    color: #ff8635;
 }
 
 /* Footer */
@@ -832,7 +887,7 @@ body {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: #FF6B35;
+        background-color: #ff8635;
         width: 100%;
         text-align: center;
         transition: 0.3s;
