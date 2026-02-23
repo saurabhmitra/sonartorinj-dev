@@ -245,6 +245,31 @@ body {
     border-radius: 2px;
 }
 
+.cancellation-notice {
+    background: rgba(255, 245, 230, 0.95);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    margin-bottom: 2rem;
+    border-left: 4px solid #ff8635;
+}
+
+.cancellation-notice p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #2c3e50;
+}
+
+.cancellation-notice p:last-child {
+    margin-bottom: 0;
+}
+
+.cancellation-notice strong {
+    color: #ff8635;
+    font-weight: 600;
+}
+
 .event-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -338,6 +363,122 @@ body {
 /* Events Page Styles */
 .events-section {
     padding: 2rem 0;
+}
+
+.no-events-message {
+    text-align: center;
+<<<<<<< Updated upstream
+=======
+    color: #4a5568;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+/* Past Events */
+.past-events-section {
+    padding: 2rem 0 4rem 0;
+}
+
+.past-event-card {
+    background: rgba(251, 244, 205, 0.95);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+}
+
+.past-event-card h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.past-event-date {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Carousel */
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.carousel-track {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.carousel-slide {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: none;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.carousel-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid #ff8635;
+    background: white;
+    color: #ff8635;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+    background: #ff8635;
+    color: white;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: #ff8635;
+}
+
+@media (max-width: 768px) {
+    .carousel-slide {
+        height: 250px;
+    }
+
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+    }
+>>>>>>> Stashed changes
 }
 
 .event-card {
