@@ -16,13 +16,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Image carousel for past events
-    const carouselContainer = document.querySelector('.carousel-container');
-    if (carouselContainer) {
-        const slides = document.querySelectorAll('.carousel-slide');
-        const prevBtn = document.querySelector('.carousel-btn-prev');
-        const nextBtn = document.querySelector('.carousel-btn-next');
-        const dotsContainer = document.querySelector('.carousel-dots');
+    // Image carousel for past events (supports multiple carousels)
+    document.querySelectorAll('.past-event-card').forEach(card => {
+        const container = card.querySelector('.carousel-container');
+        if (!container) return;
+
+        const slides = card.querySelectorAll('.carousel-slide');
+        const prevBtn = card.querySelector('.carousel-btn-prev');
+        const nextBtn = card.querySelector('.carousel-btn-next');
+        const dotsContainer = card.querySelector('.carousel-dots');
         let currentIndex = 0;
 
         function showSlide(index) {
@@ -30,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
             else if (index < 0) currentIndex = slides.length - 1;
             else currentIndex = index;
             slides.forEach((s, i) => s.classList.toggle('active', i === currentIndex));
-            document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+            dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === currentIndex));
         }
 
         slides.forEach((_, i) => {
@@ -43,6 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (prevBtn) prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
         if (nextBtn) nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
-    }
+    });
 });
 
