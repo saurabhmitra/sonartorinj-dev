@@ -35,24 +35,37 @@
         <section class="tickets-section">
             <div class="container">
                 <h2 class="page-title">Tickets</h2>
-                <p class="no-events-message">There are no upcoming events at this time. Check back soon for ticket information.</p>
+
+                <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+                <div class="ticket-event-card">
+                    <h3 class="ticket-event-title">Summer Fest — Raath'r Mela</h3>
+                    <p class="ticket-event-meta">June 14, 2026 • Mercer County Park, Princeton, NJ</p>
+                    <div class="ticket-tier-columns">
+                        <div class="ticket-tier-column ticket-tier-column--paid">
+                            <h4 class="ticket-column-heading">Ages 10 and up</h4>
+                            <div class="ticket-stripe-wrap">
+                                <stripe-buy-button
+                                    buy-button-id="buy_btn_1TIYyR2LvfvvUdNtIYYWQUaC"
+                                    publishable-key="pk_live_51Pi2QQ2LvfvvUdNtuoq7epwTvUNIxekUDNhbQPzqoLpmWOWS1LD2d2mEWQvQs9GkeSHiIvJEhy4GVv7e3PgdWYPq0066ju3xbv">
+                                </stripe-buy-button>
+                            </div>
+                        </div>
+                        <div class="ticket-tier-column ticket-tier-column--free">
+                            <h4 class="ticket-column-heading">Children under 10</h4>
+                            <p class="ticket-free-value free-text">Free</p>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="payment-table-section">
-					<h3>Donate</h3>
+                    <h3>Donate</h3>
                     <div class="donate-section-tickets" style="margin-top: 0;">
-						<p class="donate-link-text">Sonar Tori is a 501(c)(3) tax‑exempt organization. Your donations may be tax‑deductible to the extent allowed by law. Want to support our mission? Make a donation to help us continue organizing cultural events.</p>
+                        <p class="donate-link-text">Sonar Tori is a 501(c)(3) tax‑exempt organization. Your donations may be tax‑deductible to the extent allowed by law. Want to support our mission? Make a donation to help us continue organizing cultural events.</p>
                         <div class="stripe-donate-container">
-                            <script async
-                                src="https://js.stripe.com/v3/buy-button.js">
-                            </script>
-                            <script async
-                                src="https://js.stripe.com/v3/buy-button.js">
-                            </script>
-                            
                             <stripe-buy-button
                                 buy-button-id="buy_btn_1Ry5zl2LvfvvUdNtoU0eHMmm"
-                                publishable-key="pk_live_51Pi2QQ2LvfvvUdNtuoq7epwTvUNIxekUDNhbQPzqoLpmWOWS1LD2d2mEWQvQs9GkeSHiIvJEhy4GVv7e3PgdWYPq0066ju3xbv"
-                            >
+                                publishable-key="pk_live_51Pi2QQ2LvfvvUdNtuoq7epwTvUNIxekUDNhbQPzqoLpmWOWS1LD2d2mEWQvQs9GkeSHiIvJEhy4GVv7e3PgdWYPq0066ju3xbv">
                             </stripe-buy-button>
                         </div>
                     </div>

@@ -239,6 +239,128 @@ body {
     padding-top: 5rem;
 }
 
+.main-content.events-page .upcoming-events-grid {
+    margin-bottom: 5rem;
+}
+
+.main-content.events-page .upcoming-event-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 0;
+    max-width: 100%;
+    width: 100%;
+}
+
+.main-content.events-page .upcoming-event-card-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.main-content.events-page .upcoming-event-card .event-card-image {
+    flex-shrink: 0;
+    display: flex;
+    align-items: stretch;
+}
+
+.main-content.events-page .upcoming-event-image-frame {
+    padding: 1.25rem;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.main-content.events-page .upcoming-event-image-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.main-content.events-page .upcoming-event-card .event-card-content {
+    flex: 1;
+}
+
+.main-content.events-page .upcoming-event-map {
+    margin-top: 1.25rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.main-content.events-page .upcoming-event-map-heading {
+    font-size: 1rem;
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.main-content.events-page .upcoming-event-map-frame {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.main-content.events-page .upcoming-event-map-frame iframe {
+    display: block;
+    width: 100%;
+    height: clamp(160px, 22vh, 240px);
+    border: 0;
+}
+
+@media (min-width: 768px) {
+    .main-content.events-page .upcoming-event-card-row {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .main-content.events-page .upcoming-event-card .event-card-image {
+        flex: 0 0 42%;
+        max-width: 42%;
+        min-width: 0;
+    }
+
+    .main-content.events-page .upcoming-event-image-frame {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        min-height: 260px;
+    }
+
+    .main-content.events-page .upcoming-event-image-frame img {
+        flex: 1;
+        min-height: 0;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    .main-content.events-page .upcoming-event-card .event-card-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        min-width: 0;
+    }
+}
+
+.main-content.events-page .event-tagline {
+    font-size: 1.15rem;
+    color: #4a5568;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.main-content.events-page .event-description {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #4a5568;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
 .main-content.events-page .page-title {
     color: #e0e0e0;
 }
@@ -459,6 +581,17 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 550px));
     gap: 2rem;
     justify-content: center;
+}
+
+.upcoming-events-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .past-events-grid .past-event-card {
@@ -813,6 +946,90 @@ body {
     padding: 2rem 0;
 }
 
+.ticket-event-card {
+    background: var(--bubble-bg-color);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+.ticket-event-title {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.ticket-event-meta {
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0 0 1.5rem 0;
+}
+
+.ticket-tier-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.ticket-tier-column {
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid #e9ecef;
+    box-sizing: border-box;
+}
+
+.ticket-column-heading {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 1rem 0;
+}
+
+.ticket-tier-column--free {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.ticket-tier-column--free .ticket-column-heading {
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.ticket-free-value {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    min-height: 5rem;
+}
+
+.ticket-stripe-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    min-width: 0;
+}
+
+.ticket-stripe-wrap stripe-buy-button {
+    display: inline-flex;
+    max-width: 100%;
+}
+
+@media (max-width: 600px) {
+    .ticket-tier-columns {
+        grid-template-columns: 1fr;
+    }
+}
 
 .payment-table-section {
     background: var(--bubble-bg-color);
@@ -1112,6 +1329,19 @@ body {
     margin-bottom: 0;
 }
 
+.about-blurb .about-blurb-events-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 134, 53, 0.45);
+    text-underline-offset: 3px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.about-blurb .about-blurb-events-link:hover {
+    color: #ff8635;
+    text-decoration-color: #ff8635;
+}
+
 /* Sponsor Section */
 .sponsor-section {
     padding: 3rem 0;
@@ -1335,6 +1565,14 @@ body {
     .stripe-donate-container {
         min-height: 150px;
         padding: 1rem;
+    }
+
+    .ticket-event-card {
+        padding: 1.5rem;
+    }
+
+    .ticket-event-title {
+        font-size: 1.5rem;
     }
 
     .payment-table-section {
