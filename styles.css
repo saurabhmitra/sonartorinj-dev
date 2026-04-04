@@ -281,6 +281,10 @@ body {
     flex: 1;
 }
 
+.main-content.events-page .upcoming-event-tickets {
+    margin-top: 1rem;
+}
+
 .main-content.events-page .upcoming-event-map {
     margin-top: 1.25rem;
     width: 100%;
@@ -1330,16 +1334,14 @@ body {
 }
 
 .about-blurb .about-blurb-events-link {
-    color: inherit;
-    text-decoration: underline;
-    text-decoration-color: rgba(255, 134, 53, 0.45);
-    text-underline-offset: 3px;
-    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    color: #ff8635;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .about-blurb .about-blurb-events-link:hover {
-    color: #ff8635;
-    text-decoration-color: #ff8635;
+    color: #e57f2b;
 }
 
 /* Sponsor Section */
