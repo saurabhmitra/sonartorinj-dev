@@ -46,5 +46,49 @@ document.addEventListener('DOMContentLoaded', function() {
         if (prevBtn) prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
         if (nextBtn) nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
     });
+
+    // Match flyer image height to banner on wide layouts (banner drives row height)
+    (function initHomePromoFlyerHeightSync() {
+        const grid = document.querySelector('.home-promo-images');
+        if (!grid) return;
+
+        const imgs = grid.querySelectorAll('img');
+        if (imgs.length < 2) return;
+
+        const bannerImg = imgs[0];
+        const flyerImg = imgs[1];
+        const mq = window.matchMedia('(min-width: 721px)');
+
+        function clearFlyerSizing() {
+            flyerImg.style.removeProperty('height');
+        }
+
+        function sync() {
+            if (!mq.matches) {
+                clearFlyerSizing();
+                return;
+            }
+            const h = bannerImg.getBoundingClientRect().height;
+            if (h < 1) return;
+            flyerImg.style.height = h + 'px';
+        }
+
+        let resizeTimer;
+        function debouncedSync() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(sync, 50);
+        }
+
+        if (typeof ResizeObserver !== 'undefined') {
+            new ResizeObserver(debouncedSync).observe(bannerImg);
+        } else {
+            window.addEventListener('resize', debouncedSync);
+        }
+
+        mq.addEventListener('change', sync);
+        bannerImg.addEventListener('load', sync);
+        if (bannerImg.complete) sync();
+        else bannerImg.addEventListener('load', sync);
+    })();
 });
 

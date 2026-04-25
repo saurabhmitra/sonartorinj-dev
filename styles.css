@@ -229,6 +229,124 @@ body {
     min-height: calc(100vh - 70px);
 }
 
+.main-content.home-page .hero-section {
+    align-items: flex-start;
+}
+
+.main-content.home-page .hero-section .event-title {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0;
+}
+
+.home-promo-section {
+    position: relative;
+    z-index: 201;
+    margin: 0;
+    padding: 0 0 2rem;
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-promo-card {
+    display: block;
+    position: relative;
+    background: rgba(251, 244, 205, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.home-promo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 48px rgba(0, 0, 0, 0.18);
+}
+
+.home-promo-card:focus-visible {
+    outline: 3px solid #ff8635;
+    outline-offset: 4px;
+}
+
+.home-promo-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
+    background: linear-gradient(135deg, #ff8635 0%, #e57f2b 100%);
+    color: white;
+    padding: 0.45rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(255, 134, 53, 0.45);
+    transform: rotate(-3deg);
+}
+
+.home-promo-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    padding: 1.35rem 1.25rem 0.75rem;
+    align-items: start;
+}
+
+.home-promo-image-wrap {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.home-promo-image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (min-width: 721px) {
+    .home-promo-images {
+        grid-template-columns: 3fr 2fr;
+        align-items: stretch;
+    }
+
+    .home-promo-image-wrap:first-child img {
+        height: auto;
+    }
+
+    .home-promo-image-wrap:last-child img {
+        object-fit: cover;
+        object-position: center top;
+    }
+}
+
+.home-promo-cta {
+    text-align: center;
+    margin: 0;
+    padding: 0.35rem 1.25rem 1.35rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #ff8635;
+    letter-spacing: 0.02em;
+}
+
+@media (max-width: 720px) {
+    .home-promo-images {
+        grid-template-columns: 1fr;
+    }
+
+    .home-promo-badge {
+        top: 0.75rem;
+        right: 0.75rem;
+        font-size: 0.72rem;
+        padding: 0.35rem 0.75rem;
+    }
+}
+
 .main-content.events-page {
     background: transparent;
     position: relative;
@@ -315,7 +433,7 @@ body {
     border: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 601px) {
     .main-content.events-page .upcoming-event-card-row {
         flex-direction: row;
         align-items: stretch;
@@ -355,6 +473,18 @@ body {
     color: #4a5568;
     font-style: italic;
     margin-bottom: 1rem;
+}
+
+.main-content.events-page .event-card-content .event-date {
+    margin-bottom: 0.2rem;
+}
+
+.main-content.events-page .event-venue-detail {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: #888;
+    margin: 0 0 0.35rem 0;
+    font-weight: 500;
 }
 
 .main-content.events-page .event-description {
