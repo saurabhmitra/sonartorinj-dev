@@ -1099,13 +1099,6 @@ body {
 .ticket-event-meta {
     color: #666;
     font-size: 1.1rem;
-    margin: 0 0 0.5rem 0;
-}
-
-.ticket-event-dinner {
-    color: #ff8635;
-    font-size: 1.05rem;
-    font-weight: 600;
     margin: 0 0 1.5rem 0;
 }
 
