@@ -31,8 +31,9 @@ body {
     text-align: center;
     border-bottom: 3px solid #ff8635;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
-    position: relative;
-    z-index: 50;
+    position: sticky;
+    top: 70px;
+    z-index: 500;
 }
 
 .venue-alert .container {
