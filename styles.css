@@ -1200,6 +1200,13 @@ body {
     margin: 0 0 1.5rem 0;
 }
 
+.ticket-soon-message {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ff8635;
+}
+
 .ticket-tier-columns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
