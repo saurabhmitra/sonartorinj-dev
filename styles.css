@@ -23,66 +23,6 @@ body {
     padding: 0 20px;
 }
 
-/* Venue change alert */
-.venue-alert {
-    background: linear-gradient(90deg, #c62828 0%, #b71c1c 100%);
-    color: #fff;
-    padding: 0.85rem 0;
-    text-align: center;
-    border-bottom: 3px solid #ff8635;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
-    position: sticky;
-    top: 70px;
-    z-index: 500;
-}
-
-.venue-alert .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.venue-alert-headline {
-    margin: 0;
-    font-size: 1.3rem;
-    font-weight: 800;
-    letter-spacing: 0.6px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-}
-
-.venue-alert-blink {
-    animation: venue-blink 0.7s ease-in-out infinite;
-    display: inline-block;
-}
-
-.venue-alert-body {
-    margin: 0;
-    font-size: 1.05rem;
-    font-weight: 600;
-}
-
-.venue-alert-body strong {
-    background: rgba(255, 255, 255, 0.18);
-    padding: 0.1rem 0.45rem;
-    border-radius: 4px;
-    font-weight: 800;
-}
-
-@keyframes venue-blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.25; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .venue-alert-blink { animation: none; }
-}
-
-@media (max-width: 600px) {
-    .venue-alert-headline { font-size: 1.1rem; }
-    .venue-alert-body { font-size: 0.95rem; }
-}
-
 /* Navbar Styles */
 .navbar {
     background: linear-gradient(135deg, #ff8635 0%, #e57f2b 100%);
@@ -331,69 +271,6 @@ body {
     outline-offset: 4px;
 }
 
-.home-promo-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 2;
-    background: linear-gradient(135deg, #ff8635 0%, #e57f2b 100%);
-    color: white;
-    padding: 0.45rem 1rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    border-radius: 999px;
-    box-shadow: 0 4px 14px rgba(255, 134, 53, 0.45);
-    transform: rotate(-3deg);
-}
-
-.home-promo-images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.85rem;
-    padding: 1.35rem 1.25rem 0.75rem;
-    align-items: start;
-}
-
-.home-promo-image-wrap {
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-}
-
-.home-promo-image-wrap img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-@media (min-width: 721px) {
-    .home-promo-images {
-        grid-template-columns: 3fr 2fr;
-        align-items: stretch;
-    }
-
-    .home-promo-image-wrap:first-child img {
-        height: auto;
-    }
-
-    .home-promo-image-wrap:last-child img {
-        object-fit: cover;
-        object-position: center top;
-    }
-}
-
-.home-promo-cta {
-    text-align: center;
-    margin: 0;
-    padding: 0.35rem 1.25rem 1.35rem;
-    font-weight: 600;
-    font-size: 1.05rem;
-    color: #ff8635;
-    letter-spacing: 0.02em;
-}
-
 .home-promo-card--flyer {
     background: transparent;
     box-shadow: none;
@@ -411,38 +288,6 @@ body {
     width: 100%;
     height: auto;
     display: block;
-}
-
-.home-promo-flyer-overlay {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    pointer-events: none;
-    animation: home-promo-breathe 0.7s ease-in-out infinite;
-}
-
-@keyframes home-promo-breathe {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.25; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .home-promo-flyer-overlay { animation: none; }
-}
-
-@media (max-width: 720px) {
-    .home-promo-images {
-        grid-template-columns: 1fr;
-    }
-
-    .home-promo-badge {
-        top: 0.75rem;
-        right: 0.75rem;
-        font-size: 0.72rem;
-        padding: 0.35rem 0.75rem;
-    }
 }
 
 .main-content.events-page {
@@ -1207,69 +1052,6 @@ body {
     color: #ff8635;
 }
 
-.ticket-tier-columns {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    align-items: stretch;
-}
-
-.ticket-tier-column {
-    padding: 1.25rem 1.5rem;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.55);
-    border: 1px solid #e9ecef;
-    box-sizing: border-box;
-}
-
-.ticket-column-heading {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #2c3e50;
-    margin: 0 0 1rem 0;
-}
-
-.ticket-tier-column--free {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.ticket-tier-column--free .ticket-column-heading {
-    margin-bottom: 0;
-    flex-shrink: 0;
-}
-
-.ticket-free-value {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin: 0;
-    min-height: 5rem;
-}
-
-.ticket-stripe-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    min-width: 0;
-}
-
-.ticket-stripe-wrap stripe-buy-button {
-    display: inline-flex;
-    max-width: 100%;
-}
-
-@media (max-width: 600px) {
-    .ticket-tier-columns {
-        grid-template-columns: 1fr;
-    }
-}
-
 .payment-table-section {
     background: var(--bubble-bg-color);
     padding: 2.5rem;
@@ -1315,98 +1097,6 @@ body {
 .donate-link:hover {
     color: #e57f2b;
     text-decoration: underline;
-}
-
-.payment-table {
-    width: 100%;
-    min-width: 600px;
-    border-collapse: collapse;
-    margin-top: 1rem;
-}
-
-.payment-table thead {
-    background: linear-gradient(135deg, #ff8635 0%, #e57f2b 100%);
-    color: white;
-}
-
-.payment-table th,
-.payment-table td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-.payment-table th:first-child,
-.payment-table td:first-child {
-    min-width: 20px;
-    max-width: 200px;
-    word-wrap: break-word;
-}
-
-.payment-table tbody tr:hover {
-    background-color: #f9f9f9;
-}
-
-.payment-link-cell {
-    text-align: center;
-    min-width: 10px;
-    max-width: 300px;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
-}
-
-.payment-link-cell stripe-buy-button {
-    display: inline-flex;
-    max-width: 100%;
-    overflow: hidden;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-}
-
-.payment-link-cell stripe-buy-button::part(button) {
-    max-width: 100% !important;
-    width: 100% !important;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-/* Force Stripe button container to respect max-width */
-.payment-link-cell > * {
-    max-width: 100%;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-.stripe-placeholder {
-    padding: 0.5rem;
-}
-
-.stripe-link {
-    color: #635BFF;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 8px 16px;
-    border: 2px solid #635BFF;
-    border-radius: 5px;
-    display: inline-block;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.stripe-link:hover {
-    background-color: #635BFF;
-    color: white;
-}
-
-.free-text {
-    color: #28a745;
-    font-weight: 600;
-    font-style: italic;
 }
 
 /* Contact Page Styles */
@@ -1702,44 +1392,6 @@ body {
         overflow-x: auto;
     }
 
-    .payment-table {
-        font-size: 0.9rem;
-        min-width: 500px;
-    }
-
-    .payment-table th,
-    .payment-table td {
-        padding: 0.5rem;
-    }
-
-    .payment-table th:first-child,
-    .payment-table td:first-child {
-        white-space: normal;
-        word-wrap: break-word;
-        min-width: 100px;
-        max-width: 150px;
-    }
-
-    .payment-table th:not(:first-child),
-    .payment-table td:not(:first-child) {
-        white-space: nowrap;
-    }
-
-    .payment-link-cell {
-        min-width: 150px;
-        max-width: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .payment-link-cell stripe-buy-button {
-        max-width: 100%;
-        transform: scale(0.85);
-        transform-origin: center;
-        margin: 0 auto;
-    }
-
     .page-title,
     .event-title {
         font-size: 2rem;
@@ -1814,45 +1466,6 @@ body {
 
     .payment-table-section {
         padding: 1rem;
-    }
-
-    .payment-table {
-        font-size: 0.8rem;
-        min-width: 350px;
-    }
-
-    .payment-table th,
-    .payment-table td {
-        padding: 0.4rem;
-        font-size: 0.75rem;
-    }
-
-    .payment-table th:first-child,
-    .payment-table td:first-child {
-        white-space: normal;
-        word-wrap: break-word;
-        min-width: 50px;
-        max-width: 90px;
-        font-size: 0.7rem;
-    }
-
-    .payment-table th:not(:first-child),
-    .payment-table td:not(:first-child) {
-        white-space: nowrap;
-    }
-
-    .payment-link-cell {
-        min-width: 120px;
-        max-width: 150px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .payment-link-cell stripe-buy-button {
-        transform: scale(0.75);
-        transform-origin: center;
-        margin: 0 auto;
     }
 
     .main-content {
