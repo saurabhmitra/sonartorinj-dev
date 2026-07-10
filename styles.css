@@ -114,6 +114,53 @@ body {
     opacity: 1;
 }
 
+/* Keep the logo pinned left so the menu + cart group at the right edge */
+.logo {
+    margin-right: auto;
+}
+
+.nav-cart {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    margin-left: 1.75rem;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-cart:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+
+.nav-cart svg {
+    display: block;
+}
+
+.nav-cart-count {
+    position: absolute;
+    top: -7px;
+    right: -9px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    background: #c0392b;
+    color: #fff;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+    display: none;
+    box-shadow: 0 0 0 2px #ff8635;
+}
+
+.nav-cart.has-items .nav-cart-count {
+    display: block;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -1052,6 +1099,272 @@ body {
     color: #ff8635;
 }
 
+.ticket-earlybird-badge {
+    display: inline-block;
+    margin: 0;
+    padding: 0.35rem 0.9rem;
+    background: linear-gradient(135deg, #ff8635 0%, #e57f2b 100%);
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+/* Ticket cart layout */
+.ticket-cart {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.ticket-picker,
+.cart-summary {
+    background: var(--bubble-bg-color);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.ticket-picker-title,
+.cart-summary-title {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin: 0 0 0.35rem 0;
+    font-weight: 700;
+}
+
+.ticket-picker-note,
+.cart-diet-note {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0 0 1.25rem 0;
+}
+
+.ticket-type-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ticket-type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    padding: 0.9rem 1.1rem;
+}
+
+.ticket-type-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-type-name {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.ticket-type-price {
+    color: #e57f2b;
+    font-weight: 700;
+}
+
+.ticket-add-btn,
+.diet-btn,
+.checkout-btn {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.ticket-add-btn {
+    background: linear-gradient(135deg, #ff8635 0%, #e57f2b 100%);
+    color: #fff;
+    font-weight: 700;
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.ticket-add-btn:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+/* Cart summary */
+.cart-empty {
+    color: #888;
+    font-style: italic;
+    padding: 1rem 0;
+}
+
+.cart-item {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.cart-item-top {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.cart-item-name {
+    flex: 1;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 0.95rem;
+}
+
+.cart-item-price {
+    font-weight: 700;
+    color: #e57f2b;
+}
+
+.cart-item-remove {
+    background: none;
+    border: none;
+    color: #c0392b;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 0.25rem;
+}
+
+.cart-item-fields {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.cart-item-nameinput {
+    flex: 1 1 160px;
+    min-width: 0;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.cart-item-diet {
+    display: inline-flex;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.diet-btn {
+    background: #fff;
+    color: #2c3e50;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.diet-btn.is-selected {
+    background: linear-gradient(135deg, #ff8635 0%, #e57f2b 100%);
+    color: #fff;
+}
+
+.cart-footer {
+    margin-top: 1.25rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 1.25rem;
+}
+
+.cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.cart-total {
+    font-size: 1.6rem;
+    color: #e57f2b;
+}
+
+.checkout-btn {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, #ff8635 0%, #e57f2b 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.9rem;
+    border-radius: 999px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 0.5rem;
+}
+
+.checkout-btn:hover:not(:disabled) {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.checkout-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.checkout-error {
+    color: #c0392b;
+    font-size: 0.9rem;
+    margin: 0.75rem 0 0 0;
+    min-height: 1.2em;
+}
+
+.checkout-secure {
+    color: #666;
+    font-size: 0.8rem;
+    text-align: center;
+    margin: 0.75rem 0 0 0;
+}
+
+/* Success page */
+.ticket-success-card {
+    text-align: center;
+}
+
+.ticket-success-check {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    background: #27ae60;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 2rem;
+    line-height: 64px;
+    font-weight: 700;
+}
+
+.ticket-success-home {
+    display: inline-block;
+    width: auto;
+    padding: 0.75rem 2rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 720px) {
+    .ticket-cart {
+        grid-template-columns: 1fr;
+    }
+}
+
 .payment-table-section {
     background: var(--bubble-bg-color);
     padding: 2.5rem;
@@ -1346,6 +1659,7 @@ body {
 
     .hamburger {
         display: flex;
+        margin-left: 1.25rem;
     }
 
     .nav-menu {

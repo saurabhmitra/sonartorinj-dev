@@ -25,6 +25,14 @@
                 <li><a href="donate.html">Donate</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
+            <a href="tickets.html" class="nav-cart" aria-label="View cart" title="View cart">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span class="nav-cart-count" data-cart-count>0</span>
+            </a>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -38,12 +46,65 @@
             <div class="container">
                 <h2 class="page-title">Tickets</h2>
 
-                <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-
                 <div class="ticket-event-card">
                     <h3 class="ticket-event-title">Durga Pujo 2026</h3>
                     <p class="ticket-event-meta">October 10–11, 2026 • Venue announcement coming soon</p>
-                    <p class="ticket-soon-message">Registration opening soon — please check back shortly!</p>
+                    <p class="ticket-earlybird-badge">🐦 Early Bird Special</p>
+                </div>
+
+                <div class="ticket-cart" id="ticket-cart">
+                    <div class="ticket-picker">
+                        <h3 class="ticket-picker-title">Add tickets</h3>
+                        <p class="ticket-picker-note">Children below 5 are free — no ticket needed.</p>
+
+                        <div class="ticket-type-list">
+                            <div class="ticket-type" data-type="both_adult" data-price="115">
+                                <div class="ticket-type-info">
+                                    <span class="ticket-type-name">Both Days (Oct 10 &amp; 11) — Adult</span>
+                                    <span class="ticket-type-price">$115</span>
+                                </div>
+                                <button type="button" class="ticket-add-btn">Add</button>
+                            </div>
+                            <div class="ticket-type" data-type="both_kid" data-price="90">
+                                <div class="ticket-type-info">
+                                    <span class="ticket-type-name">Both Days (Oct 10 &amp; 11) — Kid (6–12)</span>
+                                    <span class="ticket-type-price">$90</span>
+                                </div>
+                                <button type="button" class="ticket-add-btn">Add</button>
+                            </div>
+                            <div class="ticket-type" data-type="oct10_adult" data-price="95">
+                                <div class="ticket-type-info">
+                                    <span class="ticket-type-name">Oct 10 Only — Adult</span>
+                                    <span class="ticket-type-price">$95</span>
+                                </div>
+                                <button type="button" class="ticket-add-btn">Add</button>
+                            </div>
+                            <div class="ticket-type" data-type="oct10_kid" data-price="50">
+                                <div class="ticket-type-info">
+                                    <span class="ticket-type-name">Oct 10 Only — Kid (6–12)</span>
+                                    <span class="ticket-type-price">$50</span>
+                                </div>
+                                <button type="button" class="ticket-add-btn">Add</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-summary">
+                        <h3 class="cart-summary-title">Your Cart</h3>
+                        <div class="cart-items" id="cart-items">
+                            <p class="cart-empty" id="cart-empty">Your cart is empty. Add tickets above to get started.</p>
+                        </div>
+                        <div class="cart-footer">
+                            <div class="cart-total-row">
+                                <span>Total</span>
+                                <span class="cart-total" id="cart-total">$0</span>
+                            </div>
+                            <p class="cart-diet-note">Set each attendee's meal preference below before checkout.</p>
+                            <button type="button" class="checkout-btn" id="checkout-btn" disabled>Checkout</button>
+                            <p class="checkout-error" id="checkout-error" role="alert"></p>
+                            <p class="checkout-secure">🔒 Payments are securely processed by Stripe. We never see your card details.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="payment-table-section">
@@ -70,6 +131,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="tickets.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,10 @@
+name = "sonartori-checkout"
+main = "checkout.js"
+compatibility_date = "2024-11-01"
+
+# Public config (safe to commit). The Stripe SECRET key is NOT here —
+# set it with:  wrangler secret put STRIPE_SECRET_KEY
+[vars]
+SUCCESS_URL = "https://sonartorinj.com/ticket-success.html"
+CANCEL_URL = "https://sonartorinj.com/tickets.html"
+ALLOWED_ORIGINS = "https://sonartorinj.com,https://www.sonartorinj.com,https://saurabhmitra.github.io"

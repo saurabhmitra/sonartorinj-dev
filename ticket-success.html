@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonar Tori - Contact Us</title>
+    <title>Sonar Tori - Ticket Confirmed</title>
     <link rel="stylesheet" href="styles.css">
-	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-container">
@@ -19,9 +21,9 @@
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="events.html">Events</a></li>
-                <li><a href="tickets.html">Tickets</a></li>
+                <li><a href="tickets.html" class="active">Tickets</a></li>
                 <li><a href="donate.html">Donate</a></li>
-                <li><a href="contact.html" class="active">Contact Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
             </ul>
             <a href="tickets.html" class="nav-cart" aria-label="View cart" title="View cart">
                 <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -40,39 +42,14 @@
     </nav>
 
     <main class="main-content">
-        <section class="contact-section">
+        <section class="tickets-section">
             <div class="container">
-                <h2 class="page-title">Contact Us</h2>
-                
-                <div class="contact-content">
-                    <div class="organization-info">
-                        <p class="org-blurb">
-                            Sonar Tori Inc is a 501(c)(3) Nonprofit Organization.
-                        </p>
-                    </div>
-
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <h3>Email</h3>
-                            <p class="contact-value">
-                                <a href="mailto:info@sonartorinj.org">admin@sonartorinj.com</a>
-                            </p>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <h3>Phone</h3>
-                            <p class="contact-value">
-                                <a href="tel:+19493946991">(949) 394-6991</a>
-                            </p>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <h3>Phone</h3>
-                            <p class="contact-value">
-                                <a href="tel:+12018735782">(201) 873-5782</a>
-                            </p>
-                        </div>
-                    </div>
+                <div class="ticket-event-card ticket-success-card">
+                    <div class="ticket-success-check">✓</div>
+                    <h2 class="ticket-event-title">Thank you! Your tickets are confirmed.</h2>
+                    <p class="ticket-event-meta">A receipt and confirmation have been emailed to you by Stripe.
+                        We look forward to celebrating Durga Pujo 2026 with you!</p>
+                    <a href="index.html" class="checkout-btn ticket-success-home">Back to Home</a>
                 </div>
             </div>
         </section>
@@ -85,6 +62,11 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Payment succeeded — empty the saved cart so it doesn't linger.
+        try { sessionStorage.removeItem('sonartori_cart_v1'); } catch (e) {}
+        if (typeof window.updateCartBadge === 'function') window.updateCartBadge();
+    </script>
 </body>
-</html>
 
+</html>

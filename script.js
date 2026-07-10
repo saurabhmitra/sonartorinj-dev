@@ -1,5 +1,30 @@
+// Navbar cart badge — reflects the count persisted by the tickets page.
+// Exposed globally so tickets.js can refresh it live as the cart changes.
+function updateCartBadge() {
+    let count = 0;
+    try {
+        const raw = sessionStorage.getItem('sonartori_cart_v1');
+        const parsed = raw ? JSON.parse(raw) : null;
+        if (Array.isArray(parsed)) count = parsed.length;
+    } catch (e) { /* storage unavailable — treat as empty */ }
+
+    document.querySelectorAll('[data-cart-count]').forEach(el => {
+        el.textContent = count;
+        const cart = el.closest('.nav-cart');
+        if (cart) cart.classList.toggle('has-items', count > 0);
+    });
+}
+window.updateCartBadge = updateCartBadge;
+
+// Refresh when the page is shown (incl. back/forward cache) or refocused,
+// so tabbing back to any page shows the current count.
+window.addEventListener('pageshow', updateCartBadge);
+window.addEventListener('focus', updateCartBadge);
+
 // Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
+    updateCartBadge();
+
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
 
