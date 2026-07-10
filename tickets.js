@@ -3,7 +3,7 @@
 // price server-side, so nothing here can change what a ticket actually costs.
 
 // ── Set this to your deployed Worker URL (see worker/README.md) ──────────────
-const CHECKOUT_ENDPOINT = "https://sonartori-checkout.CHANGE-ME.workers.dev";
+const CHECKOUT_ENDPOINT = "https://sonartori-checkout.saurabhmitra12.workers.dev";
 // ─────────────────────────────────────────────────────────────────────────────
 
 // Cart is kept in sessionStorage so it survives refreshes and tabbing away and
