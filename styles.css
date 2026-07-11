@@ -390,7 +390,25 @@ body {
 }
 
 .main-content.events-page .upcoming-event-tickets {
-    margin-top: 1rem;
+    margin-top: 1.25rem;
+}
+
+.event-tickets-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff8635 0%, #e57f2b 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(229, 127, 43, 0.35);
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.event-tickets-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
 }
 
 .main-content.events-page .upcoming-event-map {
