@@ -96,7 +96,7 @@ export default {
     form.append(`line_items[${feeIndex}][quantity]`, "1");
     form.append(`line_items[${feeIndex}][price_data][currency]`, "usd");
     form.append(`line_items[${feeIndex}][price_data][unit_amount]`, String(surcharge));
-    form.append(`line_items[${feeIndex}][price_data][product_data][name]`, "Service fee (card processing — 2.9% + $0.30)");
+    form.append(`line_items[${feeIndex}][price_data][product_data][name]`, "Service fee");
 
     // Aggregate metadata for quick catering counts in the Stripe dashboard.
     form.append("metadata[event]", "Durga Pujo 2026");
