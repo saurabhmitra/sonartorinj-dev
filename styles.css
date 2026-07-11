@@ -1282,6 +1282,19 @@ body {
     padding-top: 1.25rem;
 }
 
+.cart-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    color: #4a5568;
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+}
+
+.cart-line-fee {
+    color: #666;
+}
+
 .cart-total-row {
     display: flex;
     justify-content: space-between;
@@ -1289,7 +1302,9 @@ body {
     font-size: 1.15rem;
     font-weight: 700;
     color: #2c3e50;
-    margin-bottom: 0.5rem;
+    margin: 0.6rem 0 0.5rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .cart-total {

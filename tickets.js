@@ -10,6 +10,12 @@ const CHECKOUT_ENDPOINT = "https://sonartori-checkout.saurabhmitra12.workers.dev
 // back, then clears itself when the browser session ends or checkout succeeds.
 const CART_STORAGE_KEY = 'sonartori_cart_v1';
 
+// Card-processing surcharge shown at checkout. MUST match the Worker's values
+// (SURCHARGE_PCT / SURCHARGE_FIXED_CENTS in worker/checkout.js) so the displayed
+// total equals what Stripe charges.
+const SURCHARGE_PCT = 0.029;
+const SURCHARGE_FIXED_CENTS = 30;
+
 document.addEventListener('DOMContentLoaded', function () {
     const cart = document.getElementById('ticket-cart');
     if (!cart) return;
@@ -56,9 +62,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const itemsEl = document.getElementById('cart-items');
     const emptyEl = document.getElementById('cart-empty');
+    const subtotalEl = document.getElementById('cart-subtotal');
+    const feeEl = document.getElementById('cart-fee');
     const totalEl = document.getElementById('cart-total');
     const checkoutBtn = document.getElementById('checkout-btn');
     const errorEl = document.getElementById('checkout-error');
+
+    function money(cents) {
+        const d = cents / 100;
+        return '$' + (Number.isInteger(d) ? d.toString() : d.toFixed(2));
+    }
 
     cart.querySelectorAll('.ticket-add-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -82,6 +95,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (attendees.length === 0) {
             emptyEl.style.display = '';
             itemsEl.querySelectorAll('.cart-item').forEach(n => n.remove());
+            subtotalEl.textContent = '$0';
+            feeEl.textContent = '$0.00';
             totalEl.textContent = '$0';
             checkoutBtn.disabled = true;
             return;
@@ -90,11 +105,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Rebuild the item rows.
         itemsEl.querySelectorAll('.cart-item').forEach(n => n.remove());
-        let total = 0;
+        let subtotalCents = 0;
 
         attendees.forEach(a => {
             const t = types[a.typeId];
-            total += t.price;
+            subtotalCents += t.price * 100;
 
             const row = document.createElement('div');
             row.className = 'cart-item';
@@ -130,7 +145,10 @@ document.addEventListener('DOMContentLoaded', function () {
             itemsEl.appendChild(row);
         });
 
-        totalEl.textContent = '$' + total;
+        const feeCents = Math.round(subtotalCents * SURCHARGE_PCT) + SURCHARGE_FIXED_CENTS;
+        subtotalEl.textContent = money(subtotalCents);
+        feeEl.textContent = money(feeCents);
+        totalEl.textContent = money(subtotalCents + feeCents);
         checkoutBtn.disabled = false;
     }
 

@@ -24,6 +24,11 @@ const TICKET_TYPES = {
 
 const MAX_TICKETS = 50; // sanity cap per order
 
+// Card-processing surcharge added to the subtotal at checkout (Stripe's fee:
+// 2.9% + $0.30). Computed here server-side so it can't be tampered with.
+const SURCHARGE_PCT = 0.029;
+const SURCHARGE_FIXED_CENTS = 30;
+
 export default {
   async fetch(request, env) {
     const origin = request.headers.get("Origin") || "";
@@ -68,11 +73,13 @@ export default {
 
     let vegCount = 0;
     let nonvegCount = 0;
+    let subtotal = 0;
 
     attendees.forEach((a, i) => {
       const type = TICKET_TYPES[a.typeId];
       const diet = a?.diet === "veg" ? "Vegetarian" : "Non-Vegetarian";
       if (a?.diet === "veg") vegCount++; else nonvegCount++;
+      subtotal += type.amount;
 
       const name = typeof a?.name === "string" ? a.name.trim().slice(0, 60) : "";
       const namePart = name ? ` — ${name}` : "";
@@ -83,11 +90,21 @@ export default {
       form.append(`line_items[${i}][price_data][product_data][name]`, `${type.label} (${diet})${namePart}`);
     });
 
+    // Card-processing surcharge as its own line item (transparent on the receipt).
+    const surcharge = Math.round(subtotal * SURCHARGE_PCT) + SURCHARGE_FIXED_CENTS;
+    const feeIndex = attendees.length;
+    form.append(`line_items[${feeIndex}][quantity]`, "1");
+    form.append(`line_items[${feeIndex}][price_data][currency]`, "usd");
+    form.append(`line_items[${feeIndex}][price_data][unit_amount]`, String(surcharge));
+    form.append(`line_items[${feeIndex}][price_data][product_data][name]`, "Service fee (card processing — 2.9% + $0.30)");
+
     // Aggregate metadata for quick catering counts in the Stripe dashboard.
     form.append("metadata[event]", "Durga Pujo 2026");
     form.append("metadata[total_tickets]", String(attendees.length));
     form.append("metadata[vegetarian]", String(vegCount));
     form.append("metadata[non_vegetarian]", String(nonvegCount));
+    form.append("metadata[subtotal_usd]", (subtotal / 100).toFixed(2));
+    form.append("metadata[service_fee_usd]", (surcharge / 100).toFixed(2));
 
     let session;
     try {
