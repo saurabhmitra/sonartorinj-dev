@@ -2,8 +2,15 @@
 // Prices shown here are for display only — the Cloudflare Worker re-checks every
 // price server-side, so nothing here can change what a ticket actually costs.
 
-// ── Set this to your deployed Worker URL (see worker/README.md) ──────────────
-const CHECKOUT_ENDPOINT = "https://sonartori-checkout.saurabhmitra12.workers.dev";
+// ── Checkout endpoint ────────────────────────────────────────────────────────
+// Production domain uses the LIVE Worker; the dev site + localhost use a
+// TEST-mode Worker so reviewers can try checkout without real charges.
+const CHECKOUT_WORKERS = {
+    live: "https://sonartori-checkout.saurabhmitra12.workers.dev",
+    test: "https://sonartori-checkout-dev.saurabhmitra12.workers.dev",
+};
+const IS_PROD_HOST = location.hostname === "sonartorinj.com" || location.hostname === "www.sonartorinj.com";
+const CHECKOUT_ENDPOINT = IS_PROD_HOST ? CHECKOUT_WORKERS.live : CHECKOUT_WORKERS.test;
 // ─────────────────────────────────────────────────────────────────────────────
 
 // Cart is kept in sessionStorage so it survives refreshes and tabbing away and
