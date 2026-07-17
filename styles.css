@@ -1820,7 +1820,50 @@ h1, h2, h3, h4, h5, h6 {
 .main-content.home-page .hero-section {
     align-items: center;
     min-height: calc(100vh - 70px);
-    padding: 3rem 0;
+    padding: clamp(2.5rem, 7vh, 5.5rem) 0 3rem;
+}
+
+/* "Welcome to Sonar Tori" over the visible banner */
+.home-welcome {
+    text-align: center;
+    margin-bottom: clamp(2.25rem, 6vh, 4rem);
+}
+
+.home-welcome .event-title {
+    color: #fff;
+    font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+    line-height: 1.04;
+    margin: 0;
+    padding: 0;
+    letter-spacing: -0.01em;
+    text-shadow: 0 3px 16px rgba(0, 0, 0, 0.55);
+}
+
+.home-welcome .welcome-text {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.3em;
+    font-weight: 600;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    margin-bottom: 0.55rem;
+    opacity: 0.96;
+}
+
+.home-welcome .organization-name {
+    display: block;
+    font-size: 1em;
+    margin-top: 0;
+}
+
+.home-welcome .event-title::after {
+    content: '';
+    display: block;
+    width: 92px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--saffron), var(--gold));
+    margin: 1.15rem auto 0;
+    border-radius: 2px;
 }
 
 .hero-card {
@@ -1937,20 +1980,31 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 0.15rem;
 }
 
-/* "Early Bird pricing" — gentle breathing red */
+/* "Early Bird pricing" — prominent red blink (~1 Hz) */
 .breathe-red {
-    color: #c0392b;
+    color: #e01a1a;
     font-weight: 800;
-    animation: breatheRed 2.4s ease-in-out infinite;
+    animation: breatheRed 1s ease-in-out infinite;
 }
 
 @keyframes breatheRed {
-    0%, 100% { color: #c0392b; opacity: 0.72; }
-    50% { color: #e23b2e; opacity: 1; }
+    0%, 100% { color: #b3130e; opacity: 0.45; }
+    50% { color: #ff2323; opacity: 1; }
+}
+
+/* Early Bird badge blink (~1 Hz) */
+.ticket-earlybird-badge {
+    animation: earlyBirdBlink 1s ease-in-out infinite;
+}
+
+@keyframes earlyBirdBlink {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .breathe-red { animation: none; opacity: 1; }
+    .breathe-red,
+    .ticket-earlybird-badge { animation: none; opacity: 1; }
 }
 
 /* Mandatory attendee name — invalid state */
