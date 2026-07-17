@@ -1142,6 +1142,33 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 999px;
     font-weight: 700;
     font-size: 0.95rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ticket-earlybird-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(201, 99, 31, 0.4);
+}
+
+/* Early-bird callout link on the home hero */
+.hero-earlybird-link {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.hero-earlybird-link:hover {
+    text-decoration: underline;
+}
+
+/* Smooth in-page jumps, offset for the sticky navbar */
+html {
+    scroll-behavior: smooth;
+}
+
+#add-tickets {
+    scroll-margin-top: 90px;
 }
 
 /* Ticket cart layout */
