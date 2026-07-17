@@ -1820,13 +1820,14 @@ h1, h2, h3, h4, h5, h6 {
 .main-content.home-page .hero-section {
     align-items: center;
     min-height: calc(100vh - 70px);
-    padding: clamp(2.5rem, 7vh, 5.5rem) 0 3rem;
+    padding: clamp(4rem, 13vh, 9rem) 0 3rem;
 }
 
 /* "Welcome to Sonar Tori" over the visible banner */
 .home-welcome {
     text-align: center;
-    margin-bottom: clamp(2.25rem, 6vh, 4rem);
+    margin-top: clamp(1.5rem, 5vh, 4rem);
+    margin-bottom: clamp(4rem, 11vh, 7.5rem);
 }
 
 .home-welcome .event-title {
