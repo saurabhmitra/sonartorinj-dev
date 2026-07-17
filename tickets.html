@@ -59,36 +59,47 @@
                 <div class="ticket-cart" id="ticket-cart">
                     <div class="ticket-picker">
                         <h3 class="ticket-picker-title">Add tickets</h3>
-                        <p class="ticket-picker-note">Children below 5 are free — no ticket needed.</p>
+                        <p class="ticket-picker-note">Children below 6 are free — no ticket needed.</p>
 
-                        <div class="ticket-type-list">
-                            <div class="ticket-type" data-type="both_adult" data-price="115">
-                                <div class="ticket-type-info">
-                                    <span class="ticket-type-name">Both Days (Oct 10 &amp; 11) — Adult</span>
-                                    <span class="ticket-type-price">$115</span>
+                        <div class="ticket-grid-wrap">
+                            <div class="ticket-grid">
+                                <div class="tg-head tg-corner">Early Bird</div>
+                                <div class="tg-head">Adults</div>
+                                <div class="tg-head">Kids <span>(6–12)</span></div>
+                                <div class="tg-head">Kids <span>(under 6)</span></div>
+
+                                <div class="tg-day">Both Days <span>Oct 10 &amp; 11</span></div>
+                                <div class="tg-cell">
+                                    <span class="tg-price">$115</span>
+                                    <button type="button" class="ticket-add-btn" data-type="both_adult" data-price="115" data-label="Both Days — Adult">Add</button>
                                 </div>
-                                <button type="button" class="ticket-add-btn">Add</button>
-                            </div>
-                            <div class="ticket-type" data-type="both_kid" data-price="90">
-                                <div class="ticket-type-info">
-                                    <span class="ticket-type-name">Both Days (Oct 10 &amp; 11) — Kid (6–12)</span>
-                                    <span class="ticket-type-price">$90</span>
+                                <div class="tg-cell">
+                                    <span class="tg-price">$90</span>
+                                    <button type="button" class="ticket-add-btn" data-type="both_kid" data-price="90" data-label="Both Days — Kid (6–12)">Add</button>
                                 </div>
-                                <button type="button" class="ticket-add-btn">Add</button>
-                            </div>
-                            <div class="ticket-type" data-type="oct10_adult" data-price="95">
-                                <div class="ticket-type-info">
-                                    <span class="ticket-type-name">Oct 10 Only — Adult</span>
-                                    <span class="ticket-type-price">$95</span>
+                                <div class="tg-cell tg-free">Free</div>
+
+                                <div class="tg-day">Single Full-Day <span>Oct 10</span></div>
+                                <div class="tg-cell">
+                                    <span class="tg-price">$95</span>
+                                    <button type="button" class="ticket-add-btn" data-type="single_adult" data-price="95" data-label="Single Full-Day (Oct 10) — Adult">Add</button>
                                 </div>
-                                <button type="button" class="ticket-add-btn">Add</button>
-                            </div>
-                            <div class="ticket-type" data-type="oct10_kid" data-price="50">
-                                <div class="ticket-type-info">
-                                    <span class="ticket-type-name">Oct 10 Only — Kid (6–12)</span>
-                                    <span class="ticket-type-price">$50</span>
+                                <div class="tg-cell">
+                                    <span class="tg-price">$50</span>
+                                    <button type="button" class="ticket-add-btn" data-type="single_kid" data-price="50" data-label="Single Full-Day (Oct 10) — Kid (6–12)">Add</button>
                                 </div>
-                                <button type="button" class="ticket-add-btn">Add</button>
+                                <div class="tg-cell tg-free">Free</div>
+
+                                <div class="tg-day">Live in Concert <span>Ms Jojo · Oct 10</span></div>
+                                <div class="tg-cell">
+                                    <span class="tg-price">$70</span>
+                                    <button type="button" class="ticket-add-btn" data-type="concert_adult" data-price="70" data-label="Live in Concert · Ms Jojo (Oct 10) — Adult">Add</button>
+                                </div>
+                                <div class="tg-cell">
+                                    <span class="tg-price">$40</span>
+                                    <button type="button" class="ticket-add-btn" data-type="concert_kid" data-price="40" data-label="Live in Concert · Ms Jojo (Oct 10) — Kid (6–12)">Add</button>
+                                </div>
+                                <div class="tg-cell tg-free">Free</div>
                             </div>
                         </div>
                     </div>

@@ -20,12 +20,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const cart = document.getElementById('ticket-cart');
     if (!cart) return;
 
-    // Build a display map (id -> {label, price}) from the ticket-type cards.
+    // Build a display map (id -> {label, price}) from the ticket-grid Add buttons.
     const types = {};
-    cart.querySelectorAll('.ticket-type').forEach(el => {
-        types[el.dataset.type] = {
-            label: el.querySelector('.ticket-type-name').textContent.trim(),
-            price: Number(el.dataset.price),
+    cart.querySelectorAll('.ticket-add-btn[data-type]').forEach(btn => {
+        types[btn.dataset.type] = {
+            label: btn.dataset.label,
+            price: Number(btn.dataset.price),
         };
     });
 
@@ -73,9 +73,9 @@ document.addEventListener('DOMContentLoaded', function () {
         return '$' + (Number.isInteger(d) ? d.toString() : d.toFixed(2));
     }
 
-    cart.querySelectorAll('.ticket-add-btn').forEach(btn => {
+    cart.querySelectorAll('.ticket-add-btn[data-type]').forEach(btn => {
         btn.addEventListener('click', () => {
-            const typeId = btn.closest('.ticket-type').dataset.type;
+            const typeId = btn.dataset.type;
             attendees.push({ key: ++seq, typeId, name: '', diet: 'nonveg' });
             saveCart();
             render();

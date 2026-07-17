@@ -16,10 +16,12 @@
 // Server-side source of truth for prices. Amounts are in cents (USD).
 // The client only ever sends a ticket-type id + attendee details.
 const TICKET_TYPES = {
-  both_adult:  { label: "Durga Pujo 2026 — Both Days (Oct 10 & 11), Adult",     amount: 11500 },
-  both_kid:    { label: "Durga Pujo 2026 — Both Days (Oct 10 & 11), Kid (6–12)", amount: 9000 },
-  oct10_adult: { label: "Durga Pujo 2026 — Oct 10 Only, Adult",                 amount: 9500 },
-  oct10_kid:   { label: "Durga Pujo 2026 — Oct 10 Only, Kid (6–12)",            amount: 5000 },
+  both_adult:     { label: "Durga Pujo 2026 — Both Days (Oct 10 & 11), Adult",              amount: 11500 },
+  both_kid:       { label: "Durga Pujo 2026 — Both Days (Oct 10 & 11), Kid (6–12)",          amount: 9000 },
+  single_adult:   { label: "Durga Pujo 2026 — Single Full-Day (Oct 10), Adult",              amount: 9500 },
+  single_kid:     { label: "Durga Pujo 2026 — Single Full-Day (Oct 10), Kid (6–12)",         amount: 5000 },
+  concert_adult:  { label: "Durga Pujo 2026 — Live in Concert · Ms Jojo (Oct 10), Adult",     amount: 7000 },
+  concert_kid:    { label: "Durga Pujo 2026 — Live in Concert · Ms Jojo (Oct 10), Kid (6–12)", amount: 4000 },
 };
 
 const MAX_TICKETS = 50; // sanity cap per order
