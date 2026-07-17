@@ -117,10 +117,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="cart-item-top">
                     <span class="cart-item-name">${t.label}</span>
                     <span class="cart-item-price">$${t.price}</span>
-                    <button type="button" class="cart-item-remove" aria-label="Remove ticket">&times;</button>
+                    <button type="button" class="cart-item-remove" aria-label="Remove ticket" title="Remove ticket">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                            <line x1="10" y1="11" x2="10" y2="17"></line>
+                            <line x1="14" y1="11" x2="14" y2="17"></line>
+                        </svg>
+                    </button>
                 </div>
                 <div class="cart-item-fields">
-                    <input type="text" class="cart-item-nameinput" placeholder="Attendee name (optional)" maxlength="60">
+                    <input type="text" class="cart-item-nameinput" placeholder="Attendee name (required)" maxlength="60" required aria-label="Attendee name">
                     <div class="cart-item-diet" role="group" aria-label="Meal preference">
                         <button type="button" class="diet-btn" data-diet="veg">Veg</button>
                         <button type="button" class="diet-btn is-selected" data-diet="nonveg">Non-Veg</button>
@@ -129,7 +136,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const nameInput = row.querySelector('.cart-item-nameinput');
             nameInput.value = a.name;
-            nameInput.addEventListener('input', () => { a.name = nameInput.value; saveCart(); });
+            nameInput.addEventListener('input', () => {
+                a.name = nameInput.value;
+                nameInput.classList.remove('is-invalid');
+                saveCart();
+            });
 
             row.querySelectorAll('.diet-btn').forEach(db => {
                 db.classList.toggle('is-selected', db.dataset.diet === a.diet);
@@ -155,6 +166,23 @@ document.addEventListener('DOMContentLoaded', function () {
     checkoutBtn.addEventListener('click', async () => {
         if (attendees.length === 0) return;
         errorEl.textContent = '';
+
+        // Name is required for every ticket. Flag any blanks and stop.
+        const rows = itemsEl.querySelectorAll('.cart-item');
+        let firstEmpty = null;
+        attendees.forEach((a, i) => {
+            const input = rows[i] && rows[i].querySelector('.cart-item-nameinput');
+            if (!a.name || !a.name.trim()) {
+                if (input) input.classList.add('is-invalid');
+                if (!firstEmpty) firstEmpty = input;
+            }
+        });
+        if (firstEmpty) {
+            errorEl.textContent = 'Please enter a name for every ticket before checking out.';
+            firstEmpty.focus();
+            return;
+        }
+
         checkoutBtn.disabled = true;
         checkoutBtn.textContent = 'Redirecting to secure checkout…';
 
