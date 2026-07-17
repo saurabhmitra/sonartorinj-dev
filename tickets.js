@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
         types[btn.dataset.type] = {
             label: btn.dataset.label,
             price: Number(btn.dataset.price),
+            meal: btn.dataset.meal !== 'no',
         };
     });
 
@@ -135,10 +136,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <div class="cart-item-fields">
                     <input type="text" class="cart-item-nameinput" placeholder="Attendee name (required)" maxlength="60" required aria-label="Attendee name">
+                    ${t.meal ? `
                     <div class="cart-item-diet" role="group" aria-label="Meal preference">
                         <button type="button" class="diet-btn" data-diet="veg">Veg</button>
                         <button type="button" class="diet-btn is-selected" data-diet="nonveg">Non-Veg</button>
-                    </div>
+                    </div>` : ''}
                 </div>`;
 
             const nameInput = row.querySelector('.cart-item-nameinput');

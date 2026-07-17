@@ -15,13 +15,14 @@
 
 // Server-side source of truth for prices. Amounts are in cents (USD).
 // The client only ever sends a ticket-type id + attendee details.
+// `meal: false` = no meal served, so no veg/non-veg preference is collected.
 const TICKET_TYPES = {
   both_adult:     { label: "Durga Pujo 2026 — Both Days (Oct 10 & 11), Adult",              amount: 11500 },
   both_kid:       { label: "Durga Pujo 2026 — Both Days (Oct 10 & 11), Kid (6–12)",          amount: 9000 },
   single_adult:   { label: "Durga Pujo 2026 — Single Full-Day (Oct 10), Adult",              amount: 9500 },
   single_kid:     { label: "Durga Pujo 2026 — Single Full-Day (Oct 10), Kid (6–12)",         amount: 5000 },
-  concert_adult:  { label: "Durga Pujo 2026 — Concert Only · Ms Jojo (Oct 10), Adult",     amount: 7000 },
-  concert_kid:    { label: "Durga Pujo 2026 — Concert Only · Ms Jojo (Oct 10), Kid (6–12)", amount: 4000 },
+  concert_adult:  { label: "Durga Pujo 2026 — Concert Only · Ms Jojo (Oct 10), Adult",     amount: 7000, meal: false },
+  concert_kid:    { label: "Durga Pujo 2026 — Concert Only · Ms Jojo (Oct 10), Kid (6–12)", amount: 4000, meal: false },
 };
 
 const MAX_TICKETS = 50; // sanity cap per order
@@ -79,9 +80,15 @@ export default {
 
     attendees.forEach((a, i) => {
       const type = TICKET_TYPES[a.typeId];
-      const diet = a?.diet === "veg" ? "Vegetarian" : "Non-Vegetarian";
-      if (a?.diet === "veg") vegCount++; else nonvegCount++;
       subtotal += type.amount;
+
+      // Meal preference only applies to tickets that include a meal.
+      let dietPart = "";
+      if (type.meal !== false) {
+        const diet = a?.diet === "veg" ? "Vegetarian" : "Non-Vegetarian";
+        if (a?.diet === "veg") vegCount++; else nonvegCount++;
+        dietPart = ` (${diet})`;
+      }
 
       const name = typeof a?.name === "string" ? a.name.trim().slice(0, 60) : "";
       const namePart = name ? ` — ${name}` : "";
@@ -89,7 +96,7 @@ export default {
       form.append(`line_items[${i}][quantity]`, "1");
       form.append(`line_items[${i}][price_data][currency]`, "usd");
       form.append(`line_items[${i}][price_data][unit_amount]`, String(type.amount));
-      form.append(`line_items[${i}][price_data][product_data][name]`, `${type.label} (${diet})${namePart}`);
+      form.append(`line_items[${i}][price_data][product_data][name]`, `${type.label}${dietPart}${namePart}`);
     });
 
     // Card-processing surcharge as its own line item (transparent on the receipt).
