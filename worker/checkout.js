@@ -20,8 +20,8 @@ const TICKET_TYPES = {
   both_kid:       { label: "Durga Pujo 2026 — Both Days (Oct 10 & 11), Kid (6–12)",          amount: 9000 },
   single_adult:   { label: "Durga Pujo 2026 — Single Full-Day (Oct 10), Adult",              amount: 9500 },
   single_kid:     { label: "Durga Pujo 2026 — Single Full-Day (Oct 10), Kid (6–12)",         amount: 5000 },
-  concert_adult:  { label: "Durga Pujo 2026 — Live in Concert · Ms Jojo (Oct 10), Adult",     amount: 7000 },
-  concert_kid:    { label: "Durga Pujo 2026 — Live in Concert · Ms Jojo (Oct 10), Kid (6–12)", amount: 4000 },
+  concert_adult:  { label: "Durga Pujo 2026 — Concert Only · Ms Jojo (Oct 10), Adult",     amount: 7000 },
+  concert_kid:    { label: "Durga Pujo 2026 — Concert Only · Ms Jojo (Oct 10), Kid (6–12)", amount: 4000 },
 };
 
 const MAX_TICKETS = 50; // sanity cap per order

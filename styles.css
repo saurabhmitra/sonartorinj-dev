@@ -1288,6 +1288,13 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--muted);
 }
 
+.tg-day .tg-incl {
+    margin-top: 0.2rem;
+    font-weight: 700;
+    font-size: 0.72rem;
+    color: #2e7d46;
+}
+
 .tg-cell {
     display: flex;
     flex-direction: column;
