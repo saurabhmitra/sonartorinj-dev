@@ -2254,6 +2254,32 @@ html {
     border-radius: 14px;
 }
 
+.vs-featured {
+    margin: 0 0 1.5rem;
+}
+
+.vs-featured-link {
+    display: block;
+    border-radius: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vs-featured-link:hover {
+    transform: translateY(-3px);
+}
+
+.vs-featured-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 8px 28px rgba(60, 20, 10, 0.16);
+}
+
+.vs-featured-link:hover .vs-featured-img {
+    box-shadow: 0 14px 38px rgba(60, 20, 10, 0.24);
+}
+
 .vs-cta-card {
     text-align: center;
     background: var(--grad-saffron);
