@@ -2258,6 +2258,13 @@ html {
     margin: 0 0 1.5rem;
 }
 
+/* Portrait vendor assets (tall flyers) — centered and constrained */
+.vs-featured-portrait {
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .vs-featured-link {
     display: block;
     border-radius: 14px;
