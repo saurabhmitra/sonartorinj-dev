@@ -61,21 +61,48 @@
 
                     <div class="donate-button-section">
                         <h3>Make a Donation</h3>
-                        <div class="stripe-donate-container">
-                            <!-- Insert Stripe donate button here -->
-                            <script async
-                                src="https://js.stripe.com/v3/buy-button.js">
-                            </script>
-							<script async
-							src="https://js.stripe.com/v3/buy-button.js">
-						  </script>
-						  
-						  <stripe-buy-button
-							buy-button-id="buy_btn_1Ry5zl2LvfvvUdNtoU0eHMmm"
-							publishable-key="pk_live_51Pi2QQ2LvfvvUdNtuoq7epwTvUNIxekUDNhbQPzqoLpmWOWS1LD2d2mEWQvQs9GkeSHiIvJEhy4GVv7e3PgdWYPq0066ju3xbv"
-						  >
-						  </stripe-buy-button>
-                        </div>
+                        <form class="donate-form" id="donate-form" novalidate>
+                            <div class="donate-field">
+                                <label>Amount (USD)</label>
+                                <div class="donate-amounts" id="donate-amounts">
+                                    <button type="button" class="donate-amount-btn" data-amount="25">$25</button>
+                                    <button type="button" class="donate-amount-btn" data-amount="51">$51</button>
+                                    <button type="button" class="donate-amount-btn" data-amount="101">$101</button>
+                                    <button type="button" class="donate-amount-btn" data-amount="251">$251</button>
+                                    <button type="button" class="donate-amount-btn" data-amount="501">$501</button>
+                                </div>
+                                <div class="donate-custom">
+                                    <span class="donate-currency">$</span>
+                                    <input type="number" id="donate-amount" min="1" step="1" inputmode="decimal" placeholder="Other amount" aria-label="Donation amount in dollars">
+                                </div>
+                            </div>
+
+                            <div class="donate-field">
+                                <label for="donate-name">Name</label>
+                                <input type="text" id="donate-name" maxlength="100" autocomplete="name" required>
+                            </div>
+
+                            <div class="donate-field">
+                                <label for="donate-phone">Phone <span class="donate-optional">(optional)</span></label>
+                                <input type="tel" id="donate-phone" maxlength="40" autocomplete="tel">
+                            </div>
+
+                            <div class="donate-field">
+                                <label for="donate-comments">Comments <span class="donate-req">(reason for your donation)</span></label>
+                                <textarea id="donate-comments" maxlength="400" rows="3" required></textarea>
+                                <span class="donate-counter"><span id="comments-count">0</span>/400</span>
+                            </div>
+
+                            <div class="donate-field">
+                                <label for="donate-referred">Referred By <span class="donate-optional">(optional)</span></label>
+                                <input type="text" id="donate-referred" maxlength="100" placeholder="Who referred you?">
+                                <span class="donate-counter"><span id="referred-count">0</span>/100</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary donate-submit" id="donate-submit">Donate</button>
+                            <p class="checkout-error" id="donate-error" role="alert"></p>
+                            <p class="checkout-secure">Payments are securely processed by Stripe. We never see your card details.</p>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -89,6 +116,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="donate.js"></script>
 </body>
 </html>
 

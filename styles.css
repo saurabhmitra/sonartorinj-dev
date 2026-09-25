@@ -1672,6 +1672,125 @@ html {
     border-top: 2px solid #e9ecef;
 }
 
+/* Donation form */
+.donate-form {
+    max-width: 480px;
+    margin: 1.5rem auto 0;
+    text-align: left;
+}
+
+.donate-field {
+    position: relative;
+    margin-bottom: 1.25rem;
+}
+
+.donate-field > label {
+    display: block;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+}
+
+.donate-optional {
+    font-weight: 500;
+    color: var(--muted);
+}
+
+.donate-req {
+    font-weight: 500;
+    color: var(--muted);
+    font-size: 0.9em;
+}
+
+.donate-amounts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+}
+
+.donate-amount-btn {
+    flex: 1 1 auto;
+    min-width: 70px;
+    padding: 0.6rem 0.75rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--maroon);
+    background: #fff;
+    border: 1.5px solid rgba(122, 31, 43, 0.25);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.donate-amount-btn:hover {
+    border-color: var(--saffron);
+}
+
+.donate-amount-btn.is-selected {
+    background: var(--grad-saffron);
+    color: #fff;
+    border-color: transparent;
+}
+
+.donate-custom {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.donate-currency {
+    position: absolute;
+    left: 0.9rem;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.donate-form input,
+.donate-form textarea {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--ink);
+    background: #fff;
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.donate-custom input {
+    padding-left: 1.8rem;
+}
+
+.donate-form input:focus,
+.donate-form textarea:focus {
+    outline: none;
+    border-color: var(--saffron);
+    box-shadow: 0 0 0 3px rgba(230, 129, 46, 0.15);
+}
+
+.donate-form textarea {
+    resize: vertical;
+}
+
+.donate-counter {
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.2rem;
+}
+
+.donate-submit {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.donate-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 .donate-button-section h3 {
     font-size: 1.8rem;
     color: var(--ink);
