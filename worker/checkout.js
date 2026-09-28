@@ -17,13 +17,13 @@
 // The client only ever sends a ticket-type id + attendee details.
 // `meal: false` = no meal served, so no veg/non-veg preference is collected.
 const TICKET_TYPES = {
-  both_adult:       { label: "Durga Pujo 2026 — Both Days (Oct 10 & 11), Adult",                amount: 11500 },
+  both_adult:       { label: "Durga Pujo 2026 — Both Days (Oct 10 & 11), Adult",                amount: 12500 },
   both_kid:         { label: "Durga Pujo 2026 — Both Days (Oct 10 & 11), Kid (6–12)",            amount: 5000 },
-  single_adult:     { label: "Durga Pujo 2026 — Single Full-Day (Oct 10), Adult",               amount: 9500 },
+  single_adult:     { label: "Durga Pujo 2026 — Single Full-Day (Oct 10), Adult",               amount: 10000 },
   single_kid:       { label: "Durga Pujo 2026 — Single Full-Day (Oct 10), Kid (6–12)",          amount: 2500 },
-  single11_adult:   { label: "Durga Pujo 2026 — Single Full-Day (Oct 11), Adult",               amount: 5000 },
+  single11_adult:   { label: "Durga Pujo 2026 — Single Full-Day (Oct 11), Adult",               amount: 5500 },
   single11_kid:     { label: "Durga Pujo 2026 — Single Full-Day (Oct 11), Kid (6–12)",          amount: 2500 },
-  concert_adult:    { label: "Durga Pujo 2026 — Concert Only · Ms Jojo (Oct 10), Adult",       amount: 7000, meal: false },
+  concert_adult:    { label: "Durga Pujo 2026 — Concert Only · Ms Jojo (Oct 10), Adult",       amount: 7500, meal: false },
   concert_kid:      { label: "Durga Pujo 2026 — Concert Only · Ms Jojo (Oct 10), Kid (6–12)",   amount: 2000, meal: false },
 };
 
